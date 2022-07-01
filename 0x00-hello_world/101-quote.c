@@ -1,5 +1,5 @@
 #include <unistd.h>
-export CFILE=main.c
+
 /**
  * main - write to stdout
  * Return: Always 0
