@@ -1,35 +1,43 @@
-/**
- * cap_string - capitalizes all words of a string.
- * @s: string.
- * Return: string.
- */
-char *cap_string(char *s)
-{
-	int i;
+#include "holberton.h"
 
-	i = 0;
-	while (s[i] != '\0')
+/**
+ * *cap_string - capitalize words
+ * @str: pointer
+ * Return: capitalzied string
+*/
+
+char *cap_string(char *str)
+{
+char sep[] = ",\t;\n; .!?\"(){}";
+int flag, i, ii;
+
+for (i = 0; str[i] != '\0'; i++)
+{
+	flag = 0;
+
+	if (i == 0)
 	{
-		if ((s[i - 1] == ' ' || s[i - 1] == '\n'
-		|| s[i - 1] == '\t' || s[i - 1] == ','
-		|| s[i - 1] == ';' || s[i - 1] == '!'
-		|| s[i - 1] == '?' || s[i - 1] == '"'
-		|| s[i - 1] == '(' || s[i - 1] == ')'
-		|| s[i - 1] == '{' || s[i - 1] == '}'
-		|| s[i - 1] == '.')
-		&& (s[i] >= 'a' && s[i] <= 'z'))
-		{
-			s[i] = s[i] - 32;
-		}
-		else if ((s[0] >= 97 && s[0] <= 122))
-		{
-			s[0] = s[0] - 32;
-		}
-		else
-		{
-			s[i] = s[i];
-		}
-		i++;
+		flag = 1;
 	}
-	return (s);
+	else
+	{
+		for (ii = 0; sep[ii] != '\0'; ii++)
+		{
+			if (str[i - 1] == sep[ii])
+			{
+				flag = 1;
+				break;
+			}
+		}
+	}
+
+	if (flag == 1)
+	{
+		if (str[i] <= 'z' && str[i] >= 'a')
+		{
+			str[i] -= ('a' - 'A');
+		}
+	}
+}
+return (str);
 }
