@@ -1,33 +1,28 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
- * leet -  encodes a string into 1337.
- * @s: string to code
- * Return: the enconde string.
+ * leet - transform to leet
+ * @s: char array string type
+ * Return: s transformed
  */
+
 char *leet(char *s)
 {
-	int i;
-	int j;
-	int k;
+	int i, ii;
+	char s1[] = "aeotl";
+	char S1[] = "AEOTL";
+	char s2[] = "43071";
 
-	char l[] = "oOlLeEaAtT";
-	char e[] = "0011334477";
-
-	i = 0;
-	while (s[i] != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		j = 0;
-		k = 0;
-		while (l[j] != '\0')
+		for (ii = 0; ii < 5; ii++)
 		{
-			if (s[i] == l[j])
+			if (s[i] == s1[ii] || s[i] == S1[ii])
 			{
-				k = j;
-				s[i] = e[k];
+				s[i] = s2[ii];
+				break;
 			}
-			j++;
 		}
-		i++;
 	}
 	return (s);
 }
