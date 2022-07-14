@@ -5,6 +5,7 @@
  * @src: cadena a copiar
  * @dest: destino de la cadena.
  * Return: dest.
+ * I updated
  */
 
 char *_strcat(char *dest, char *src)
